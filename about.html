@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Funngro - Empowering Teens</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* IZAL Watermark */
+        body::after {
+            content: "IZAL";
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 80px;
+            color: rgba(0, 0, 0, 0.05);
+            pointer-events: none;
+            z-index: 9999;
+            font-weight: 700;
+        }
+
+        :root {
+            --primary-color: #6C63FF; /* A vibrant, modern purple */
+            --secondary-color: #50C878; /* A fresh green */
+            --dark-color: #1a202c;
+            --light-color: #f7fafc;
+            --text-color: #4a5568;
+            --border-radius: 10px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #8A2BE2);
+            color: var(--light-color);
+            padding: 1.5rem 0;
+            box-shadow: var(--box-shadow);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin-left: 30px;
+        }
+
+        header nav ul li a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        header nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* About Us Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color), #8A2BE2);
+            color: var(--light-color);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .about-hero h2 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--light-color);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2.8rem;
+            color: var(--dark-color);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+        }
+
+        .mission-vision-section {
+            background-color: #e0f4f7;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .mission-vision-section h3 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .mission-vision-section h3::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .mv-item {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+
+        .mv-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .mv-item i {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .mv-item h4 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .mv-item p {
+            font-size: 1.15rem;
+            color: var(--text-color);
+        }
+
+        .team-section {
+            background-color: var(--light-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .team-section h3 {
+            font-size: 3rem;
+            margin-bottom: 50px;
+            color: var(--dark-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .team-section h3::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background-color: var(--primary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 4px solid var(--primary-color);
+        }
+
+        .team-member h4 {
+            font-size: 1.8rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .team-member p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn:hover {
+            background-color: #8A2BE2;
+            transform: translateY(-3px);
+        }
+
+
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        footer .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 20px;
+        }
+
+        footer .footer-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        footer .footer-section p, footer .footer-section ul {
+            color: #ccc;
+        }
+
+        footer .footer-section ul {
+            list-style: none;
+        }
+
+        footer .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        footer .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-section ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: var(--light-color);
+            font-size: 1.8rem;
+            margin-right: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--secondary-color);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div style="display:none;">IZAL</div>
+
+    <header>
+        <div class="container">
+            <h1>Funngro</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="index.html#cta">Get the App</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="about-page">
+        <section class="about-hero">
+            <div class="container">
+                <h2>About Funngro</h2>
+                <p>We're passionate about empowering the next generation by providing a safe and accessible platform for teens to discover, develop, and monetize their skills.</p>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Story</h3>
+                        <p>Funngro was born from a simple yet powerful idea: to bridge the gap between teenage talent and real-world opportunities. In today's dynamic world, we believe that young individuals possess immense potential that can be nurtured and rewarded early on. We saw a need for a dedicated platform where teens could safely explore freelancing, gain practical experience, and build financial literacy.</p>
+                        <p>Since our inception, we've been committed to creating a supportive ecosystem where learning and earning go hand-in-hand. We're constantly evolving, adding new features and opportunities to ensure every Funngro user can thrive.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Teens collaborating">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission-vision-section">
+            <div class="container">
+                <h3>Our Mission & Vision</h3>
+                <div class="mv-grid">
+                    <div class="mv-item">
+                        <i class="fas fa-bullseye"></i>
+                        <h4>Our Mission</h4>
+                        <p>To empower teenagers globally by providing a secure, engaging, and educational platform for freelancing, fostering skill development, financial independence, and entrepreneurial spirit.</p>
+                    </div>
+                    <div class="mv-item">
+                        <i class="fas fa-eye"></i>
+                        <h4>Our Vision</h4>
+                        <p>To be the leading global platform for youth freelancing, where every teenager can unlock their potential, contribute meaningfully, and build a strong foundation for their future careers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h3>Meet the Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a3dd7c53d4f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 1">
+                        <h4>Jane Doe</h4>
+                        <p>Co-Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 2">
+                        <h4>John Smith</h4>
+                        <p>Head of Product</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29329?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Team Member 3">
+                        <h4>Emily White</h4>
+                        <p>Community Manager</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <h4>Funngro</h4>
+                <p>Empowering the next generation of freelancers. Your talent, your terms, your future.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="index.html#features">Features</a></li>
+                    <li><a href="#">How It Works</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Download App</h4>
+                <a href="https://play.google.com/store/apps/details?id=com.wishbanc.funngro" target="_blank">
+                    <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="width: 150px; margin-top: 10px;">
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Funngro. All rights reserved. Designed by IZAL.</p>
+        </div>
+    </footer>
+</body>
+</html>
